@@ -4,7 +4,7 @@
 #
 Name     : perl-SQL-Abstract
 Version  : 1.86
-Release  : 7
+Release  : 8
 URL      : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Abstract-1.86.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Abstract-1.86.tar.gz
 Summary  : 'Generate SQL from Perl data structures'
