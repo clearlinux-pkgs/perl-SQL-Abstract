@@ -76,10 +76,10 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.0/DBIx/Class/Storage/Debug/PrettyPrint.pm
-/usr/lib/perl5/vendor_perl/5.28.0/SQL/Abstract.pm
-/usr/lib/perl5/vendor_perl/5.28.0/SQL/Abstract/Test.pm
-/usr/lib/perl5/vendor_perl/5.28.0/SQL/Abstract/Tree.pm
+/usr/lib/perl5/vendor_perl/5.28.1DBIx/Class/Storage/Debug/PrettyPrint.pm
+/usr/lib/perl5/vendor_perl/5.28.1SQL/Abstract.pm
+/usr/lib/perl5/vendor_perl/5.28.1SQL/Abstract/Test.pm
+/usr/lib/perl5/vendor_perl/5.28.1SQL/Abstract/Tree.pm
 
 %files dev
 %defattr(-,root,root,-)
