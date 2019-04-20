@@ -4,12 +4,13 @@
 #
 Name     : perl-SQL-Abstract
 Version  : 1.86
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Abstract-1.86.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Abstract-1.86.tar.gz
-Summary  : 'Generate SQL from Perl data structures'
+Summary  : Generate SQL from Perl data structures
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-SQL-Abstract-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Clone::Choose)
 BuildRequires : perl(Devel::GlobalDestruction)
@@ -34,9 +35,18 @@ use SQL::Abstract;
 Summary: dev components for the perl-SQL-Abstract package.
 Group: Development
 Provides: perl-SQL-Abstract-devel = %{version}-%{release}
+Requires: perl-SQL-Abstract = %{version}-%{release}
 
 %description dev
 dev components for the perl-SQL-Abstract package.
+
+
+%package license
+Summary: license components for the perl-SQL-Abstract package.
+Group: Default
+
+%description license
+license components for the perl-SQL-Abstract package.
 
 
 %prep
@@ -64,6 +74,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-SQL-Abstract
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-SQL-Abstract/LICENSE
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -87,3 +99,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/SQL::Abstract.3
 /usr/share/man/man3/SQL::Abstract::Test.3
 /usr/share/man/man3/SQL::Abstract::Tree.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-SQL-Abstract/LICENSE
