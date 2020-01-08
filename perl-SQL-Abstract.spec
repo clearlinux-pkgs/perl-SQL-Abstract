@@ -4,13 +4,14 @@
 #
 Name     : perl-SQL-Abstract
 Version  : 1.86
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Abstract-1.86.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Abstract-1.86.tar.gz
-Summary  : Generate SQL from Perl data structures
+Summary  : 'Generate SQL from Perl data structures'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-SQL-Abstract-license = %{version}-%{release}
+Requires: perl-SQL-Abstract-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Clone::Choose)
 BuildRequires : perl(Devel::GlobalDestruction)
@@ -49,14 +50,24 @@ Group: Default
 license components for the perl-SQL-Abstract package.
 
 
+%package perl
+Summary: perl components for the perl-SQL-Abstract package.
+Group: Default
+Requires: perl-SQL-Abstract = %{version}-%{release}
+
+%description perl
+perl components for the perl-SQL-Abstract package.
+
+
 %prep
 %setup -q -n SQL-Abstract-1.86
+cd %{_builddir}/SQL-Abstract-1.86
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -66,7 +77,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -75,7 +86,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-SQL-Abstract
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-SQL-Abstract/LICENSE
+cp %{_builddir}/SQL-Abstract-1.86/LICENSE %{buildroot}/usr/share/package-licenses/perl-SQL-Abstract/20f2d9de6b9921ab196c13a400f439220930f4ea
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -88,10 +99,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/DBIx/Class/Storage/Debug/PrettyPrint.pm
-/usr/lib/perl5/vendor_perl/5.28.2/SQL/Abstract.pm
-/usr/lib/perl5/vendor_perl/5.28.2/SQL/Abstract/Test.pm
-/usr/lib/perl5/vendor_perl/5.28.2/SQL/Abstract/Tree.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -102,4 +109,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-SQL-Abstract/LICENSE
+/usr/share/package-licenses/perl-SQL-Abstract/20f2d9de6b9921ab196c13a400f439220930f4ea
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/DBIx/Class/Storage/Debug/PrettyPrint.pm
+/usr/lib/perl5/vendor_perl/5.30.1/SQL/Abstract.pm
+/usr/lib/perl5/vendor_perl/5.30.1/SQL/Abstract/Test.pm
+/usr/lib/perl5/vendor_perl/5.30.1/SQL/Abstract/Tree.pm
