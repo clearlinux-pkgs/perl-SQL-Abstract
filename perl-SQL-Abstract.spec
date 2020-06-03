@@ -4,12 +4,13 @@
 #
 Name     : perl-SQL-Abstract
 Version  : 1.87
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Abstract-1.87.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Abstract-1.87.tar.gz
 Summary  : 'Generate SQL from Perl data structures'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0-Perl GPL-1.0
+Requires: perl-SQL-Abstract-license = %{version}-%{release}
 Requires: perl-SQL-Abstract-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Clone::Choose)
@@ -37,6 +38,14 @@ Requires: perl-SQL-Abstract = %{version}-%{release}
 
 %description dev
 dev components for the perl-SQL-Abstract package.
+
+
+%package license
+Summary: license components for the perl-SQL-Abstract package.
+Group: Default
+
+%description license
+license components for the perl-SQL-Abstract package.
 
 
 %package perl
@@ -74,6 +83,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-SQL-Abstract
+cp %{_builddir}/SQL-Abstract-1.87/LICENSE %{buildroot}/usr/share/package-licenses/perl-SQL-Abstract/9db3dba2d36b55a0bc3e797bdfd1c467e014bbb8
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -94,9 +105,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/SQL::Abstract::Test.3
 /usr/share/man/man3/SQL::Abstract::Tree.3
 
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-SQL-Abstract/9db3dba2d36b55a0bc3e797bdfd1c467e014bbb8
+
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/DBIx/Class/Storage/Debug/PrettyPrint.pm
-/usr/lib/perl5/vendor_perl/5.30.2/SQL/Abstract.pm
-/usr/lib/perl5/vendor_perl/5.30.2/SQL/Abstract/Test.pm
-/usr/lib/perl5/vendor_perl/5.30.2/SQL/Abstract/Tree.pm
+/usr/lib/perl5/vendor_perl/5.30.3/DBIx/Class/Storage/Debug/PrettyPrint.pm
+/usr/lib/perl5/vendor_perl/5.30.3/SQL/Abstract.pm
+/usr/lib/perl5/vendor_perl/5.30.3/SQL/Abstract/Test.pm
+/usr/lib/perl5/vendor_perl/5.30.3/SQL/Abstract/Tree.pm
