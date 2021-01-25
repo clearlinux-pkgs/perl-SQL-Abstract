@@ -1,9 +1,10 @@
-1.87
+2.000001
 perl(Clone::Choose)
+perl(Data::Dumper::Concise)
 perl(Hash::Merge)
 perl(MRO::Compat)
-perl(Module::Runtime)
 perl(Moo)
+perl(Role::Tiny)
 perl(Sub::Quote)
 perl(Sub::Uplevel)
 perl(Test::Deep)
