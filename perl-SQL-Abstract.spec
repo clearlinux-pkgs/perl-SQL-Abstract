@@ -4,7 +4,7 @@
 #
 Name     : perl-SQL-Abstract
 Version  : 2.000001
-Release  : 20
+Release  : 21
 URL      : https://cpan.metacpan.org/authors/id/M/MS/MSTROUT/SQL-Abstract-2.000001.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MS/MSTROUT/SQL-Abstract-2.000001.tar.gz
 Summary  : 'Generate SQL from Perl data structures'
@@ -117,14 +117,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/DBIx/Class/SQLMaker/Role/SQLA2Passthrough.pm
-/usr/lib/perl5/vendor_perl/5.34.0/DBIx/Class/Storage/Debug/PrettyPrint.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract/Formatter.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract/Parts.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract/Plugin/BangOverrides.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract/Plugin/ExtraClauses.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract/Reference.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract/Role/Plugin.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract/Test.pm
-/usr/lib/perl5/vendor_perl/5.34.0/SQL/Abstract/Tree.pm
+/usr/lib/perl5/*
