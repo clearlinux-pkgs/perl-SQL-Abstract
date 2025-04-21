@@ -7,7 +7,7 @@
 #
 Name     : perl-SQL-Abstract
 Version  : 2.000001
-Release  : 28
+Release  : 29
 URL      : https://cpan.metacpan.org/authors/id/M/MS/MSTROUT/SQL-Abstract-2.000001.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MS/MSTROUT/SQL-Abstract-2.000001.tar.gz
 Summary  : 'Generate SQL from Perl data structures'
